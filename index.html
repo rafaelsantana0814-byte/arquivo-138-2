@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>ARQUIVO 138</title>
+<style>
+  body{
+    margin:0;
+    background:#000;
+    color:#eaeaea;
+    font-family: monospace;
+  }
+  .page{
+    display:none;
+    min-height:100vh;
+    padding:40px;
+  }
+  .active{display:block;}
+  h1,h2{letter-spacing:2px;}
+  .center{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  }
+  .clock{
+    font-size:96px;
+    margin:20px 0;
+    animation: glitch 1.5s infinite;
+  }
+  @keyframes glitch{
+    0%{transform:translate(0)}
+    20%{transform:translate(-2px,2px)}
+    40%{transform:translate(2px,-2px)}
+    60%{transform:translate(-1px,1px)}
+    80%{transform:translate(1px,-1px)}
+    100%{transform:translate(0)}
+  }
+  .rule{
+    color:#b30000;
+    margin-top:20px;
+  }
+  button{
+    margin-top:30px;
+    padding:10px 20px;
+    background:#111;
+    color:#fff;
+    border:1px solid #333;
+    cursor:pointer;
+  }
+  button:hover{background:#222;}
+  img{
+    max-width:300px;
+    margin:20px 0;
+    filter: contrast(1.1) brightness(0.9);
+  }
+  .small{color:#777;font-size:14px;}
+</style>
+</head>
+
+<body>
+
+<!-- PÁGINA 1 -->
+<div class="page active center" id="p1">
+  <h1>ARQUIVO 138</h1>
+  <div class="clock">01:38</div>
+  <div class="rule">NÃO FALE O NOME DO MONSTRO.</div>
+  <button onclick="go(2)">CONTINUAR</button>
+</div>
+
+<!-- PÁGINA 2 -->
+<div class="page" id="p2">
+  <h2>REGISTRO</h2>
+  <p>O cachorro não morreu.</p>
+  <p>Ele foi esquecido.</p>
+  <p class="small">Arquivo parcialmente corrompido.</p>
+  <button onclick="go(3)">VER DESENHOS</button>
+</div>
+
+<!-- PÁGINA 3 -->
+<div class="page center" id="p3">
+  <h2>DESENHOS</h2>
+
+  <!-- TROQUE AS IMAGENS AQUI -->
+  <img src="COLE_AQUI_O_LINK_DA_IMAGEM_1">
+  <p>Ele observa.</p>
+
+  <img src="COLE_AQUI_O_LINK_DA_IMAGEM_2">
+  <p>Ele escuta.</p>
+
+  <img src="COLE_AQUI_O_LINK_DA_IMAGEM_3">
+  <p>Quem fala, chama.</p>
+
+  <button onclick="go(4)">CONTINUAR</button>
+</div>
+
+<!-- PÁGINA 4 -->
+<div class="page center" id="p4">
+  <h2>ARQUIVO ENCERRADO</h2>
+  <p>Toda vez que você lê isso,</p>
+  <p>está mais perto do horário.</p>
+  <div class="clock">01:38</div>
+</div>
+
+<script>
+function go(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+}
+</script>
+
+</body>
+</html>
